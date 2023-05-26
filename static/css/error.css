@@ -1,0 +1,54 @@
+@import url(fonts.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', 'Arial', sans-serif;
+}
+
+body {
+  font-family: 'Roboto Condensed', 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #EDF5ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.error-container {
+  text-align: center;
+  background: #DDE4DD;
+  padding: 2rem;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+
+.error-container h1 {
+  font-size: 2rem;
+  color: #2A522F;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  font-size: 1rem;
+  color: #2A522F;
+}
+
+.retry-button {
+    background-color: #2A522F;
+    color: #9BBFA0;
+    font-size: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .retry-button:hover {
+    background-color: #9BBFA0;
+    color: #2A522F;
+  }

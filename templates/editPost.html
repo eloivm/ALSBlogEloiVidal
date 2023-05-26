@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+
+{% block title %}
+Editar Post
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/registroLoginStyle.css">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="registration-container">
+        <h1 class="registration-title">Editar publicación</h1>
+        <form method="POST" action="{{ url_for('posts.edit_post', post_id=post_id) }}">
+            <div>
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" value="{{ title }}" required>
+            </div>
+            <div>
+                <label for="content">Contenido:</label>
+                <textarea id="content" name="content" rows="10" required>{{ content }}</textarea>
+            </div>
+            <button type="submit" class="accept-button">Guardar cambios</button>
+            <button type="button" class="cancel-button"
+                onclick="location.href='{{ url_for('posts.index') }}'">Cancelar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

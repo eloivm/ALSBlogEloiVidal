@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/registroLoginStyle.css">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="registration-container">
+        <h1 class="registration-title">Iniciar sesión</h1>
+        {% for error in errors %}
+        <div class="error-list">{{ error }}</div>
+        {% endfor %}
+        <form action="#" method="post">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="{{ form_data.email }}" required>
+            </div>
+            <div>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

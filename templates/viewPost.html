@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <a href="{{ url_for('posts.index') }}" class="back-button">Volver</a>
+    <article>
+        <div class="post-meta">
+            <time datetime="{{ post.edited_at.strftime('%Y-%m-%dT%H:%M:%S') }}">{{
+                post.edited_at.strftime('%d-%m-%Y %H:%M') }}</time>
+        </div>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+
+        <hr class="divider">
+
+        <h3>Comentarios</h3>
+        {% for comment in comments %}
+        <div class="comment-container">
+            <div class="comment">
+                <p>{{ comment.content }}</p>
+                <small class="comment-meta">Publicado por @{{ comment.user_nickname }}</small>
+            </div>
+            {% if current_user.nickname == comment.user_nickname %}
+            <a href="{{ url_for('comments.delete_comment', comment_id=comment.comment_id) }}" class="cancel-button">Eliminar
+                comentario</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <form method="POST" action="{{ url_for('comments.add_comment', post_id=post.post_id) }}" class="comment-form">
+            <textarea name="content" placeholder="Añade un comentario" class="comment-input small-textarea"></textarea>
+            <button type="submit" class="comment-button back-button">Comentar</button>
+        </form>
+
+    </article>
+</section>
+
+{% endblock %}

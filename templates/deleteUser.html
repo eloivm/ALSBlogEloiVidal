@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+
+{% block title %}
+Eliminar cuenta
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/registroLoginStyle.css">
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="delete-container">
+        <form method="POST" action="{{ url_for('editProfile.delete_user') }}">
+            <h1>Eliminar cuenta</h1>
+            <p>¿Estás seguro de que deseas eliminar tu cuenta?</p>
+            <button class="delete-user-button" type="submit">Eliminar cuenta</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

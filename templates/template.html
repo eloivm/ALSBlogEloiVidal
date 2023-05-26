@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    {% block css %}{% endblock %}
+    <script src="../static/js/modal.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('posts.index') }}">Inicio</a></li>
+                <div class="login-register-container">
+                    {% if current_user.nickname %}
+                    <li class="push-right">
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-button">Hola, {{ current_user.nickname }}</a>
+                            <div class="dropdown-content">
+                                <a href="{{ url_for('posts.my_posts') }}">Mis posts</a>
+                                <a href="{{ url_for('editProfile.edit_profile') }}">Editar perfil</a>
+                                <a href="{{ url_for('editProfile.change_password') }}">Cambiar contraseña</a>
+                                <a href="{{ url_for('editProfile.delete_user') }}">Eliminar cuenta</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="push-right"><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></li>
+                    {% else %}
+                    <li class="push-right"><a href="{{ url_for('auth.login') }}">Iniciar sesión</a></li>
+                    <li class="push-right"><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
+                    {% endif %}
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block modal %}{% endblock %}
+
+</body>
+
+</html>

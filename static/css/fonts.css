@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Amatic SC';
+    
+    src: url('../fonts/AmaticSC/AmaticSC-Regular.ttf');
+  
+    font-style: normal;
+    font-weight: normal;
+    
+  }
+  
+  @font-face {
+    font-family: 'Amatic SC';
+    
+    src: url('../fonts/AmaticSC/AmaticSC-Bold.ttf');
+  
+    font-style: bold;
+    font-weight: bold;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+  
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Bold.ttf');
+  
+    font-style: bold;
+    font-weight: bold;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+  
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Italic.ttf');
+  
+    font-style: italic;
+    font-weight: italic;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+  
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Light.ttf');
+  
+    font-style: light;
+    font-weight: light;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+  
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-LightItalic.ttf');
+  
+    font-style: light italic;
+    font-weight: light italic;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+  
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-BoldItalic.ttf');
+  
+    font-style: bold light;
+    font-weight: bold light;
+  }
+
+  @font-face {
+    font-family: 'Roboto Condensed';
+  
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Regular.ttf');
+  
+    font-style: normal;
+    font-weight: normal;
+  }

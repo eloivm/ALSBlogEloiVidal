@@ -1,0 +1,61 @@
+{% extends "template.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="top-bar">
+        <h1>Últimos posts</h1>
+        {% if current_user %}
+        <a class="create-post-btn" href="{{ url_for('posts.add_post') }}" class="btn btn-primary">Añadir post</a>
+        {% else %}
+        <a class="create-post-btn" href="{{ url_for('auth.login') }}" class="btn btn-primary">Añadir post</a>
+        {% endif %}
+    </div>
+    <div class="posts-container">
+        {% for post in posts %}
+        <article>
+            <div class="post-meta">
+                <div>
+                    <span>@{{ post.user_id }}</span>
+                </div>
+                <div>
+                    <time datetime="{{ post.edited_at.strftime('%Y-%m-%dT%H:%M:%S') }}">{{
+                        post.edited_at.strftime('%d-%m-%Y %H:%M') }}</time>
+                </div>
+            </div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content | truncate(1400, end='...') }}</p>
+            <div class="post-actions">
+                <a class="post-button post-view" href="{{ url_for('posts.view_post', post_id=post.post_id) }}"
+                    class="btn btn-info">Ver más</a>
+                {% if current_user and current_user.nickname == post.user_id %}
+                <a class="post-button post-edit" href="{{ url_for('posts.edit_post', post_id=post.post_id) }}"
+                    class="btn btn-warning">Editar</a>
+                <a class="post-button post-delete"
+                    href="{{ url_for('posts.delete_post', post_id=post.post_id) }}">Eliminar</a>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block modal %}
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-content">
+        <h2>¿Estás seguro de que deseas eliminar este post?</h2>
+        <div class="modal-buttons">
+            <button id="deleteCancel" class="modal-button-cancel">Cancelar</button>
+            <button id="deleteConfirm" class="modal-button-accept">Eliminar</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

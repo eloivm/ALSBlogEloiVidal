@@ -1,0 +1,39 @@
+
+        @import url(fonts.css);
+
+        .dropdown-menu {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DDE4DD;
+            min-width: 160px;
+            padding: 0.5rem;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #2A522F;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #9BBFA0;
+            color: #2A522F;
+        }

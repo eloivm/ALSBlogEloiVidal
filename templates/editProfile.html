@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+
+{% block title %}
+@{{ form_data.nickname }}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/registroLoginStyle.css">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="registration-container">
+        <h1 class="registration-title">Editar perfil</h1>
+        {% if errors %}
+        <ul class="error-list">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="{{ url_for('editProfile.edit_profile') }}" method="POST">
+            <div>
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname" value="{{ form_data.nickname }}" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ form_data.email }}" required>
+            </div>
+            <div>
+                <label for="password">Contraseña actual:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+                    <button type="submit" class="accept-button">Actualizar</button>
+                    <button type="button" class="cancel-button"
+                        onclick="location.href='{{ url_for('posts.index') }}'">Cancelar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock%}

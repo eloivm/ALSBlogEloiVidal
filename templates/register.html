@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+
+{% block title %}
+Registro
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/registroLoginStyle.css">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="registration-container">
+        <h1 class="registration-title">Bienvenido al club!</h1>
+        {% if errors %}
+        <ul class="error-list">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="{{ url_for('auth.register') }}" method="POST">
+            <div>
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname" value="{{ form_data.nickname }}" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ form_data.email }}" required>
+            </div>
+            <div>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="password-repeat">Repetir contraseña:</label>
+                <input type="password" id="password-repeat" name="password-repeat" required>
+            </div>
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
+</section>
+
+{% endblock%}

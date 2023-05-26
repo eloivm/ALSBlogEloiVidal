@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+
+{% block title %}
+Nuevo Post
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/registroLoginStyle.css">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="add-post-container">
+        <h1 class="registration-title">Crear nuevo post</h1>
+        <form method="POST" action="{{ url_for('posts.add_post') }}">
+            <div>
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="content">Contenido:</label>
+                <textarea id="content" name="content" rows="10" required></textarea>
+            </div>
+            <button type="submit" class="accept-button">Publicar</button>
+            <button type="button" class="cancel-button"
+                onclick="location.href='{{ url_for('posts.index') }}'">Cancelar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
